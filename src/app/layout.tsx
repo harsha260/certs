@@ -13,14 +13,37 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://certs.harsha.dev"),
   title: "My Certifications | Harsha",
   description:
     "A visual showcase of my professional certifications and achievements. Browse, search, and download certificates across various domains.",
+  icons: {
+    icon: "/assets/icon.jpg",
+    apple: "/assets/icon.jpg",
+  },
   openGraph: {
     title: "My Certifications | Harsha",
     description:
       "A visual showcase of my professional certifications and achievements.",
     type: "website",
+    images: [
+      {
+        url: "/certs/Fundamentals-of-Responsible-AI.png",
+        width: 1200,
+        height: 630,
+        alt: "My Certifications Showcase",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "My Certifications | Harsha",
+    description:
+      "A visual showcase of my professional certifications and achievements.",
+    images: ["/certs/Fundamentals-of-Responsible-AI.png"],
+  },
+  alternates: {
+    canonical: "/",
   },
   robots: {
     index: true,

@@ -10,11 +10,12 @@ export default function CategoryFilter({
   onSelect,
 }: CategoryFilterProps) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div role="group" aria-label="Filter by category" className="flex flex-wrap gap-2">
       {categories.map((cat) => (
         <button
           key={cat}
           onClick={() => onSelect(cat)}
+          aria-pressed={activeCategory === cat}
           className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
             activeCategory === cat
               ? "bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.3)]"

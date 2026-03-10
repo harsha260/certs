@@ -5,7 +5,7 @@ export default function Header() {
         My Certifications
       </h1>
       <p className="text-neutral-400 text-lg max-w-xl">
-        A visual catalog for my certs, that i wanted for a long time.
+        A visual catalog of my professional certifications and achievements.
       </p>
     </header>
   );
