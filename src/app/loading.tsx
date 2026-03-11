@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <main className="min-h-screen bg-neutral-950 text-neutral-200 p-6 md:p-12 font-sans">
+    <main aria-label="Loading certificates" className="min-h-screen bg-neutral-950 text-neutral-200 p-6 md:p-12 font-sans">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Array.from({ length: 6 }).map((_, i) => (

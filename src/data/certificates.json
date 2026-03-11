@@ -7,5 +7,32 @@
     "category": "AI",
     "fileUrl": "/certs/Fundamentals-of-Responsible-AI.pdf",
     "imageUrl": "/certs/Fundamentals-of-Responsible-AI.png"
+  },
+  {
+    "id": 2,
+    "title": "AI Fluency: Framework & Foundations",
+    "issuer": "Anthropic",
+    "date": "2026-03-11",
+    "category": "AI",
+    "fileUrl": "/certs/AI-Fluency.pdf",
+    "imageUrl": "/certs/AI-Fluency.png"
+  },
+  {
+    "id": 3,
+    "title": "Python Essentials 1",
+    "issuer": "CISCO",
+    "date": "2026-01-23",
+    "category": "Python",
+    "fileUrl": "/certs/Python_Essentials_1.pdf",
+    "imageUrl": "/certs/Python_Essentials_1.png"
+  },
+  {
+    "id": 4,
+    "title": "Networking Basics",
+    "issuer": "CISCO",
+    "date": "2025-06-25",
+    "category": "Networking",
+    "fileUrl": "/certs/Networking_Basics.pdf",
+    "imageUrl": "/certs/Networking_Basics.png"
   }
 ]

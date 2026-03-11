@@ -1,101 +1,87 @@
 # Certs Showcase
 
-A personal certification showcase web application built to display professional certifications in a visual, interactive card-based catalog. The goal is to keep growing this collection over time as new certifications are earned.
+a simple website i built to show off my certifications. basically a visual grid of cards where you can search, filter by category, and view or download the actual PDFs. nothing fancy, just a clean way to keep track of everything in one place.
 
-## Features
+the plan is to keep adding certs here as i earn more over time.
 
-- Responsive grid layout that displays certificate preview images as cards
-- Hover overlay on each card revealing title, issuer, year, and category
-- View and download buttons for each certificate PDF
-- Search by certificate title or issuer
-- Filter certificates by category
-- Sorted by date (newest first)
-- Dark theme with smooth animations and transitions
+live at [certs.itsharsha.me](https://certs.itsharsha.me)
 
-## Tech Stack
+## what it does
 
-- **Framework:** Next.js 16 (App Router)
-- **Language:** TypeScript 5
-- **UI:** React 19
-- **Styling:** Tailwind CSS v4
-- **Fonts:** Geist Sans and Geist Mono
-- **Testing:** Vitest with Testing Library
-- **Deployment:** Vercel
+- responsive card grid that looks good on both desktop and mobile
+- hover over a card (or tap on mobile) to see the details and action buttons
+- search across certificate titles and issuers
+- filter by category with pill buttons
+- view certs in a new tab or download the PDF directly
+- dark theme with smooth animations
+- keyboard accessible (you can press `/` to jump to search, navigate cards with tab, enter/space to open, escape to close)
 
-## Getting Started
+## tech stack
 
-### Prerequisites
+| what | with |
+|------|------|
+| framework | Next.js 16 (App Router) |
+| language | TypeScript (strict mode) |
+| ui | React 19 |
+| styling | Tailwind CSS v4 |
+| fonts | Geist Sans + Geist Mono |
+| testing | Vitest + Testing Library |
+| deployed on | Vercel |
 
-- Node.js 20 or later
-- npm
+## getting started
 
-### Installation
+you need Node.js 20+ and npm.
 
 ```bash
 git clone https://github.com/harsha260/certs.git
 cd certs
 npm install
-```
-
-### Development
-
-```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+open [localhost:3000](http://localhost:3000) and you should see it running.
 
-### Build
-
-```bash
-npm run build
-npm run start
-```
-
-### Testing
+other commands:
 
 ```bash
-npm run test
+npm run build     # production build (also checks for type errors)
+npm run lint      # run eslint
+npm run test      # run all tests
 ```
 
-### Linting
-
-```bash
-npm run lint
-```
-
-## Project Structure
+## project structure
 
 ```
 src/
   app/
-    layout.tsx            Root layout with metadata and fonts
-    page.tsx              Main page with state management and composition
-    globals.css           Global styles and Tailwind imports
+    page.tsx              main page (server component)
+    layout.tsx            root layout, metadata, fonts
+    loading.tsx           skeleton loading state
+    error.tsx             error boundary
+    not-found.tsx         404 page
+    globals.css           tailwind + theme config
   components/
-    Header.tsx            Page title and subtitle
-    SearchBar.tsx          Search input component
-    CategoryFilter.tsx    Category pill button filter
-    CertificateCard.tsx   Individual certificate card with hover overlay
-    CertificateGrid.tsx   Responsive grid of certificate cards
+    CertificateExplorer   client boundary, owns search/filter state
+    CertificateCard       card with hover/tap overlay
+    CertificateGrid       responsive grid + empty state
+    SearchBar             search input with "/" shortcut
+    CategoryFilter        category pill buttons
+    Header                page title and subtitle
   data/
-    certificates.json     Certificate data entries
+    certificates.json     all the cert data lives here
   types/
-    certificate.ts        TypeScript interface for certificate data
+    certificate.ts        TypeScript interface
   utils/
-    filterCertificates.ts Search and filter logic
-
+    filterCertificates.ts search, filter, and sort logic
 public/
-  certs/                  Certificate PDFs and preview images
+  certs/                  certificate PDFs and preview images
 ```
 
-## How to Add a Certificate
+## how to add a certificate
 
-1. Place your certificate PDF and a preview image (PNG or JPG) in the `public/certs/` directory. Use a consistent naming convention, for example:
-   - `public/certs/My-Certificate-Name.pdf`
-   - `public/certs/My-Certificate-Name.png`
+1. drop your certificate PDF and a preview image (png/jpg) into `public/certs/`
 
-2. Add a new entry to `src/data/certificates.json`:
+2. add an entry to `src/data/certificates.json`:
 
 ```json
 {
@@ -104,52 +90,27 @@ public/
   "issuer": "Issuing Organization",
   "date": "YYYY-MM-DD",
   "category": "Category Name",
-  "fileUrl": "/certs/My-Certificate-Name.pdf",
-  "imageUrl": "/certs/My-Certificate-Name.png"
+  "fileUrl": "/certs/My-Certificate.pdf",
+  "imageUrl": "/certs/My-Certificate.png"
 }
 ```
 
-Each field explained:
+that's it. the new cert shows up in the grid automatically, and it's searchable and filterable right away. categories are derived from the data so if you use a new category name it just works.
 
-| Field      | Description                                              |
-|------------|----------------------------------------------------------|
-| `id`       | Unique numeric identifier (increment from the last entry)|
-| `title`    | Full name of the certification                           |
-| `issuer`   | Organization that issued the certificate                 |
-| `date`     | Date of completion in `YYYY-MM-DD` format                |
-| `category` | Category for filtering (e.g., "AI", "Cloud", "Security") |
-| `fileUrl`  | Path to the PDF file relative to `public/`               |
-| `imageUrl` | Path to the preview image relative to `public/`          |
+## want to use this for yourself?
 
-3. The new certificate will automatically appear in the grid, be searchable, and filterable by its category.
+feel free to fork this and make it your own. the rough steps:
 
-## Fork and Customize
+- fork and clone the repo
+- clear out `public/certs/` and set `src/data/certificates.json` to `[]`
+- add your own certs (see above)
+- update the title in `src/components/Header.tsx` and metadata in `src/app/layout.tsx`
+- deploy to Vercel or wherever you like
 
-This project can be used as a template for showcasing your own certifications:
+## deployment
 
-1. Fork this repository on GitHub.
-2. Clone your fork locally:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/certs.git
-   cd certs
-   npm install
-   ```
-3. Clear the existing certificate data:
-   - Delete the files in `public/certs/`
-   - Replace the contents of `src/data/certificates.json` with an empty array: `[]`
-4. Add your own certificates following the steps in the "How to Add a Certificate" section above.
-5. Customize the branding:
-   - Update the title and subtitle in `src/components/Header.tsx`
-   - Update the metadata in `src/app/layout.tsx` with your name and description
-6. Deploy to Vercel (or any hosting platform that supports Next.js):
-   ```bash
-   npm run build
-   ```
+deployed on Vercel. pushing to `main` triggers an automatic deploy.
 
-## Deployment
+## license
 
-This project is deployed on Vercel. Pushing to the `main` branch triggers an automatic deployment.
-
-## License
-
-This project is open source. Feel free to fork and adapt it for your own use.
+open source -- fork it, modify it, do whatever you want with it.

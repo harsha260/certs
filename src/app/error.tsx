@@ -1,11 +1,13 @@
 "use client";
 
 export default function Error({
+  error,
   reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  console.error(error);
   return (
     <main className="min-h-screen bg-neutral-950 flex flex-col items-center justify-center p-6 text-center">
       <h2 className="text-2xl font-bold text-white mb-4">

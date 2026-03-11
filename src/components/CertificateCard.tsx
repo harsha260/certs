@@ -79,15 +79,15 @@ export default function CertificateCard({ cert }: CertificateCardProps) {
         {/* Hover / Tap Overlay */}
         <div
           aria-hidden={!isActive}
-          className={`absolute inset-0 bg-black/75 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out flex flex-col justify-center items-center text-center p-6 ${active}`}
+          className={`absolute inset-0 bg-black/75 backdrop-blur-sm opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 ease-in-out flex flex-col justify-center items-center text-center p-6 ${active}`}
         >
           <span className={`text-blue-400 text-xs font-bold uppercase tracking-widest mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75 ${activeTranslate}`}>
             {cert.category}
           </span>
 
-          <h3 className={`text-2xl font-bold text-white leading-tight mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100 drop-shadow-lg ${activeTranslate}`}>
+          <p className={`text-2xl font-bold text-white leading-tight mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100 drop-shadow-lg ${activeTranslate}`}>
             {cert.title}
-          </h3>
+          </p>
 
           <p className={`text-neutral-300 text-sm mb-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150 ${activeTranslate}`}>
             {cert.issuer} &bull; {year}

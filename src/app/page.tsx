@@ -1,12 +1,13 @@
 import certData from "@/data/certificates.json";
 import type { Certificate } from "@/types/certificate";
+import { ALL_CATEGORIES } from "@/utils/filterCertificates";
 import Header from "@/components/Header";
 import CertificateExplorer from "@/components/CertificateExplorer";
 
 const certificates: Certificate[] = certData;
 
 const categories = [
-  "All",
+  ALL_CATEGORIES,
   ...Array.from(new Set(certificates.map((c) => c.category))),
 ];
 

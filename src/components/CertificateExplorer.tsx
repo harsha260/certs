@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { Certificate } from "@/types/certificate";
-import { filterCertificates, sortByDateDescending } from "@/utils/filterCertificates";
+import { ALL_CATEGORIES, filterCertificates, sortByDateDescending } from "@/utils/filterCertificates";
 import SearchBar from "@/components/SearchBar";
 import CategoryFilter from "@/components/CategoryFilter";
 import CertificateGrid from "@/components/CertificateGrid";
@@ -17,7 +17,7 @@ export default function CertificateExplorer({
   categories,
 }: CertificateExplorerProps) {
   const [searchQuery, setSearchQuery] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("All");
+  const [categoryFilter, setCategoryFilter] = useState(ALL_CATEGORIES);
 
   const filtered = filterCertificates(certificates, searchQuery, categoryFilter);
   const sorted = sortByDateDescending(filtered);
