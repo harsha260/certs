@@ -16,7 +16,7 @@ export default function CategoryFilter({
           key={cat}
           onClick={() => onSelect(cat)}
           aria-pressed={activeCategory === cat}
-          className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
+          className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 outline-none ${
             activeCategory === cat
               ? "bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.3)]"
               : "bg-neutral-900 text-neutral-400 hover:bg-neutral-800 hover:text-white"

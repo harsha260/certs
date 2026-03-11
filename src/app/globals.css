@@ -16,14 +16,29 @@
   }
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+/* Card overlay — only show hover effects on devices that support hover.
+   This prevents sticky :hover on mobile after a tap. */
+@media (hover: hover) {
+  .group:hover .card-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .group:hover .card-image {
+    scale: 1.05;
+  }
+
+  .group:hover .card-slide {
+    translate: 0;
+  }
+}
+
+/* Card overlay — show on keyboard focus within the card */
+.group:focus-within .card-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.group:focus-within .card-slide {
+  translate: 0;
 }
