@@ -34,5 +34,23 @@
     "category": "Networking",
     "fileUrl": "/certs/Networking_Basics.pdf",
     "imageUrl": "/certs/Networking_Basics.png"
+  },
+  {
+    "id": 5,
+    "title": "Introduction to Model Context Protocol",
+    "issuer": "Anthropic",
+    "date": "2026-03-13",
+    "category": "AI",
+    "fileUrl": "/certs/Introduction-to-Model-Context-Protocol.pdf",
+    "imageUrl": "/certs/mcp.png"
+  },
+  {
+    "id": 6,
+    "title": "Python Essentials 2",
+    "issuer": "CISCO",
+    "date": "2026-03-14",
+    "category": "Python",
+    "fileUrl": "/certs/Python_Essentials_2.pdf",
+    "imageUrl": "/certs/Python_Essentials_2.png"
   }
 ]
