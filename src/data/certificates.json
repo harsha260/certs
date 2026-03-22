@@ -52,5 +52,14 @@
     "category": "Python",
     "fileUrl": "/certs/Python_Essentials_2.pdf",
     "imageUrl": "/certs/Python_Essentials_2.png"
+  },
+  {
+    "id": 7,
+    "title": "Model Context Protocol: Advanced Topics",
+    "issuer": "Anthropic",
+    "date": "2026-03-22",
+    "category": "AI",
+    "fileUrl": "/certs/MCP_Adv.pdf",
+    "imageUrl": "/certs/MCP_Adv.png"
   }
 ]
